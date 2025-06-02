@@ -1,16 +1,16 @@
 
 // src/lib/constants.ts
 export const SITE_CONFIG = {
-    name: 'AI Portfolio',
-    title: 'AI Engineer Portfolio',
+    name: 'Rahul Pandey - AI Portfolio',
+    title: 'Rahul Pandey | AI Engineer Portfolio',
     description: 'Expert in Generative AI frameworks, multi-agent systems, RAG pipelines, and GPU optimization.',
-    url: 'https://your-portfolio-domain.com',
+    url: 'https://rahulpandey-ai-portfolio.vercel.app',
     ogImage: '/og-image.png',
     links: {
-        github: 'https://github.com/yourusername',
-        linkedin: 'https://linkedin.com/in/yourprofile',
-        email: 'your.email@example.com',
-        twitter: 'https://twitter.com/yourusername'
+        github: 'https://github.com/RahulpndtRp',
+        linkedin: 'https://www.linkedin.com/in/rp-rahulpandey',
+        email: 'pyrahulpndt@gmail.com',
+        twitter: 'https://x.com/rahulpndtrp'
     }
 };
 

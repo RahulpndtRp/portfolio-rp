@@ -27,8 +27,8 @@ export function Hero() {
                         variants={ANIMATION_VARIANTS.fadeIn}
                         className="text-4xl md:text-6xl lg:text-7xl font-bold"
                     >
-                        Building the Future with
-                        <span className="gradient-text block">Generative AI</span>
+                        Hi, I'm <span className="gradient-text">Rahul Pandey</span>
+                        <span className="gradient-text block">Building the Future with AI</span>
                     </motion.h1>
 
                     <motion.p
@@ -36,9 +36,8 @@ export function Hero() {
                         className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
                     >
                         Expert in multi-agent systems, RAG pipelines, and LLM orchestration.
-                        Specializing in GPU optimization and real-time AI solutions.
+                        Passionate about GPU optimization and edge AI deployment.
                     </motion.p>
-
                     <motion.div
                         variants={ANIMATION_VARIANTS.fadeIn}
                         className="flex flex-col sm:flex-row gap-4 justify-center"
