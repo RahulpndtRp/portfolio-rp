@@ -16,7 +16,7 @@ export function Footer() {
                 <div className="grid md:grid-cols-4 gap-8">
                     {/* Brand */}
                     <div className="md:col-span-2">
-                        <span className="text-3xl font-bold gradient-text">AI.Portfolio</span>
+                        <span className="text-3xl font-bold gradient-text">{SITE_CONFIG.brandName}</span>
                         <p className="text-gray-400 mt-4 max-w-md">
                             Building the future of AI with cutting-edge solutions,
                             one algorithm at a time. Expert in generative AI,

@@ -1,5 +1,6 @@
 // src/lib/constants.ts
 export const SITE_CONFIG = {
+    brandName: 'Rahul Pandey',
     name: 'Rahul Pandey - AI Engineer Portfolio',
     title: 'Rahul Pandey | Data Scientist & AI Engineer',
     description: 'AI Engineer specialized in LLMs, RAG Pipelines, Multi-Agent Systems, and Cloud Deployments. Winner of NVIDIA NIM Hackathon 2024.',
