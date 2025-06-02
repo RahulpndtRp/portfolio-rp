@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { useContactForm } from '@/hooks/useContactForm';
-import { SITE_CONFIG, ANIMATION_VARIANTS } from '@/lib/constants';
+import { CONTACT_INFO, OPPORTUNITIES, CONTACT_TEXT, FORM_CONFIG, ANIMATION_VARIANTS } from '@/lib/constants';
 
 const iconMap = {
     Mail,
@@ -24,46 +24,48 @@ export function Contact() {
     const contactInfo = [
         {
             icon: 'Mail' as const,
-            label: 'Email',
-            value: SITE_CONFIG.links.email,
-            href: `mailto:${SITE_CONFIG.links.email}`,
+            label: CONTACT_INFO.email.label,
+            value: CONTACT_INFO.email.display,
+            href: `mailto:${CONTACT_INFO.email.value}`,
             color: 'text-ai-blue'
         },
         {
             icon: 'Github' as const,
-            label: 'GitHub',
-            value: '@yourusername',
-            href: SITE_CONFIG.links.github,
+            label: CONTACT_INFO.github.label,
+            value: CONTACT_INFO.github.display,
+            href: CONTACT_INFO.github.value,
             color: 'text-ai-purple'
         },
         {
             icon: 'Linkedin' as const,
-            label: 'LinkedIn',
-            value: '@yourprofile',
-            href: SITE_CONFIG.links.linkedin,
+            label: CONTACT_INFO.linkedin.label,
+            value: CONTACT_INFO.linkedin.display,
+            href: CONTACT_INFO.linkedin.value,
             color: 'text-ai-blue'
         },
         {
             icon: 'MapPin' as const,
-            label: 'Location',
-            value: 'Available Globally',
-            href: '#',
+            label: CONTACT_INFO.location.label,
+            value: CONTACT_INFO.location.display,
+            href: CONTACT_INFO.location.value,
             color: 'text-ai-purple'
         }
     ];
 
+
     const opportunities = [
         'AI/ML Engineering Roles',
-        'Technical Consulting',
-        'Open Source Collaboration',
-        'Speaking & Workshops'
+        'Generative AI Consulting',
+        'RAG & LLM Implementation',
+        'Multi-Agent System Development',
+        'NVIDIA Tech Integration',
+        'Speaking & Technical Workshops'
     ];
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         submitForm();
     };
-
     return (
         <section id="contact" className="py-20 bg-ai-dark">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,14 +80,13 @@ export function Contact() {
                         variants={ANIMATION_VARIANTS.fadeIn}
                         className="text-4xl md:text-5xl font-bold mb-4 gradient-text"
                     >
-                        Get In Touch
+                        {CONTACT_TEXT.title}
                     </motion.h2>
                     <motion.p
                         variants={ANIMATION_VARIANTS.fadeIn}
                         className="text-xl text-gray-300 max-w-3xl mx-auto"
                     >
-                        Interested in collaborating on AI projects or discussing opportunities?
-                        Let's build something amazing together.
+                        {CONTACT_TEXT.subtitle}
                     </motion.p>
                 </motion.div>
 
@@ -100,7 +101,7 @@ export function Contact() {
                     >
                         <motion.div variants={ANIMATION_VARIANTS.slideIn}>
                             <Card>
-                                <h3 className="text-2xl font-bold mb-6 text-ai-blue">Let's Connect</h3>
+                                <h3 className="text-2xl font-bold mb-6 text-ai-blue">{CONTACT_TEXT.connectTitle}</h3>
 
                                 <div className="space-y-4">
                                     {contactInfo.map((info) => {
@@ -112,7 +113,18 @@ export function Contact() {
                                                 </div>
                                                 <div>
                                                     <span className="text-gray-400 text-sm">{info.label}</span>
-                                                    <p className="text-white font-semibold">{info.value}</p>
+                                                    {info.href && info.href !== '#' ? (
+                                                        <a
+                                                            href={info.href}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-white font-semibold hover:text-ai-blue transition-colors block"
+                                                        >
+                                                            {info.value}
+                                                        </a>
+                                                    ) : (
+                                                        <p className="text-white font-semibold">{info.value}</p>
+                                                    )}
                                                 </div>
                                             </div>
                                         );
@@ -123,9 +135,9 @@ export function Contact() {
 
                         <motion.div variants={ANIMATION_VARIANTS.slideIn}>
                             <Card>
-                                <h3 className="text-xl font-bold mb-4 text-ai-purple">Open for Opportunities</h3>
+                                <h3 className="text-xl font-bold mb-4 text-ai-purple">{CONTACT_TEXT.opportunitiesTitle}</h3>
                                 <ul className="space-y-3 text-gray-300">
-                                    {opportunities.map((opportunity) => (
+                                    {OPPORTUNITIES.map((opportunity) => (
                                         <li key={opportunity} className="flex items-center gap-3">
                                             <CheckCircle className="w-5 h-5 text-ai-blue flex-shrink-0" />
                                             {opportunity}
@@ -144,45 +156,49 @@ export function Contact() {
                         variants={ANIMATION_VARIANTS.slideIn}
                     >
                         <Card>
-                            <h3 className="text-2xl font-bold mb-6 text-ai-blue">Send a Message</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-ai-blue">{CONTACT_TEXT.formTitle}</h3>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <Input
+                                        name="name"
                                         label="Name"
                                         value={form.name}
                                         onChange={(e) => updateField('name', e.target.value)}
                                         error={errors.name}
-                                        placeholder="Your Name"
+                                        placeholder={FORM_CONFIG.placeholders.name}
                                         required
                                     />
                                     <Input
+                                        name="email"
                                         label="Email"
                                         type="email"
                                         value={form.email}
                                         onChange={(e) => updateField('email', e.target.value)}
                                         error={errors.email}
-                                        placeholder="your@email.com"
+                                        placeholder={FORM_CONFIG.placeholders.email}
                                         required
                                     />
                                 </div>
 
                                 <Input
+                                    name="subject"
                                     label="Subject"
                                     value={form.subject}
                                     onChange={(e) => updateField('subject', e.target.value)}
                                     error={errors.subject}
-                                    placeholder="Project Collaboration"
+                                    placeholder={FORM_CONFIG.placeholders.subject}
                                     required
                                 />
 
                                 <Textarea
+                                    name="message"
                                     label="Message"
                                     rows={5}
                                     value={form.message}
                                     onChange={(e) => updateField('message', e.target.value)}
                                     error={errors.message}
-                                    placeholder="Tell me about your project or opportunity..."
+                                    placeholder={FORM_CONFIG.placeholders.message}
                                     required
                                 />
 
@@ -198,6 +214,6 @@ export function Contact() {
                     </motion.div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

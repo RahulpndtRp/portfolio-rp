@@ -113,16 +113,30 @@ export function Projects() {
                                 <CardFooter>
                                     <div className="flex gap-3 w-full">
                                         {project.githubUrl && (
-                                            <Button variant="ghost" size="sm" className="flex-1">
-                                                <Github className="w-4 h-4 mr-2" />
-                                                GitHub
-                                            </Button>
+                                            <a
+                                                href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1"
+                                            >
+                                                <Button variant="ghost" size="sm" className="w-full">
+                                                    <Github className="w-4 h-4 mr-2" />
+                                                    GitHub
+                                                </Button>
+                                            </a>
                                         )}
                                         {project.liveUrl && (
-                                            <Button variant="outline" size="sm" className="flex-1">
-                                                <ExternalLink className="w-4 h-4 mr-2" />
-                                                Demo
-                                            </Button>
+                                            <a
+                                                href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1"
+                                            >
+                                                <Button variant="outline" size="sm" className="w-full">
+                                                    <ExternalLink className="w-4 h-4 mr-2" />
+                                                    Demo
+                                                </Button>
+                                            </a>
                                         )}
                                     </div>
                                 </CardFooter>

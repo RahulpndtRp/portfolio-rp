@@ -69,17 +69,30 @@ export function useContactForm(): UseContactFormReturn {
         setIsSuccess(false);
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Send to Formspree
+            const response = await fetch('https://formspree.io/f/xrbkgagq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    subject: form.subject,
+                    message: form.message,
+                    _subject: `Portfolio Contact: ${form.subject}`,
+                }),
+            });
 
-            // Here you would typically send the form data to your backend
-            console.log('Form submitted:', form);
-
-            setIsSuccess(true);
-            setForm(initialForm);
+            if (response.ok) {
+                setIsSuccess(true);
+                setForm(initialForm);
+            } else {
+                throw new Error('Failed to send message');
+            }
         } catch (error) {
             console.error('Form submission error:', error);
-            // Handle error (show toast, etc.)
+            // You can add error handling here
         } finally {
             setIsSubmitting(false);
         }

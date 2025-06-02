@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { experiences, education } from '@/data/experience';
 import { skills } from '@/data/skills';
-import { ANIMATION_VARIANTS, TECH_CATEGORIES } from '@/lib/constants';
+import { ANIMATION_VARIANTS, TECH_CATEGORIES, CERTIFICATIONS } from '@/lib/constants';
 
 export function Resume() {
     const groupedSkills = skills.reduce((acc, skill) => {
@@ -20,12 +20,6 @@ export function Resume() {
         return acc;
     }, {} as Record<string, typeof skills>);
 
-    const certifications = [
-        'AWS Machine Learning Specialty',
-        'NVIDIA Deep Learning Institute',
-        'Google Cloud AI/ML',
-        'Kubernetes Certified'
-    ];
 
     return (
         <section id="resume" className="py-20 bg-ai-gray">
@@ -113,10 +107,17 @@ export function Resume() {
                             variants={ANIMATION_VARIANTS.slideIn}
                             className="text-center"
                         >
-                            <Button size="lg">
-                                <Download className="w-5 h-5 mr-2" />
-                                Download PDF
-                            </Button>
+                            <a
+                                href="/resume.pdf"
+                                download="Rahul_Pandey_Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button size="lg">
+                                    <Download className="w-5 h-5 mr-2" />
+                                    Download Resume
+                                </Button>
+                            </a>
                         </motion.div>
                     </motion.div>
 
@@ -187,7 +188,7 @@ export function Resume() {
                                 <div className="pt-6 border-t border-gray-600">
                                     <h4 className="text-lg font-semibold text-white mb-4">Certifications</h4>
                                     <div className="grid md:grid-cols-2 gap-4">
-                                        {certifications.map((cert, index) => (
+                                        {CERTIFICATIONS.map((cert, index) => (
                                             <div key={cert} className="bg-ai-dark p-3 rounded-lg">
                                                 <span className={`font-semibold text-sm ${index % 2 === 0 ? 'text-ai-blue' : 'text-ai-purple'}`}>
                                                     {cert}

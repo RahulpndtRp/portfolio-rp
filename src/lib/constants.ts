@@ -1,14 +1,13 @@
-
 // src/lib/constants.ts
 export const SITE_CONFIG = {
-    name: 'Rahul Pandey - AI Portfolio',
-    title: 'Rahul Pandey | AI Engineer Portfolio',
-    description: 'Expert in Generative AI frameworks, multi-agent systems, RAG pipelines, and GPU optimization.',
+    name: 'Rahul Pandey - AI Engineer Portfolio',
+    title: 'Rahul Pandey | Data Scientist & AI Engineer',
+    description: 'AI Engineer specialized in LLMs, RAG Pipelines, Multi-Agent Systems, and Cloud Deployments. Winner of NVIDIA NIM Hackathon 2024.',
     url: 'https://rahulpandey-ai-portfolio.vercel.app',
     ogImage: '/og-image.png',
     links: {
         github: 'https://github.com/RahulpndtRp',
-        linkedin: 'https://www.linkedin.com/in/rp-rahulpandey',
+        linkedin: 'https://www.linkedin.com/in/rp-rahulpandey/',
         email: 'pyrahulpndt@gmail.com',
         twitter: 'https://x.com/rahulpndtrp'
     }
@@ -80,3 +79,66 @@ export const PROJECT_CATEGORIES = [
     'Full-Stack AI',
     'Vector DB'
 ] as const;
+
+
+export const CONTACT_INFO = {
+    email: {
+        label: 'Email',
+        value: 'pyrahulpndt@gmail.com',
+        display: 'pyrahulpndt@gmail.com'
+    },
+    github: {
+        label: 'GitHub',
+        value: 'https://github.com/RahulpndtRp',
+        display: '@RahulpndtRp'
+    },
+    linkedin: {
+        label: 'LinkedIn',
+        value: 'https://www.linkedin.com/in/rp-rahulpandey/',
+        display: '@rp-rahulpandey'
+    },
+    location: {
+        label: 'Location',
+        value: '#',
+        display: 'India (Remote Available)'
+    }
+};
+
+export const OPPORTUNITIES = [
+    'AI/ML Engineering Roles',
+    'Generative AI Consulting',
+    'RAG & LLM Implementation',
+    'Multi-Agent System Development',
+    'NVIDIA Tech Integration',
+    'Speaking & Technical Workshops'
+];
+
+export const CONTACT_TEXT = {
+    title: 'Get In Touch',
+    subtitle: 'Interested in collaborating on AI projects or discussing opportunities? Let\'s build something amazing together.',
+    connectTitle: 'Let\'s Connect',
+    opportunitiesTitle: 'Open for Opportunities',
+    formTitle: 'Send a Message'
+};
+
+export const FORM_CONFIG = {
+    formspreeId: 'https://formspree.io/f/xrbkgagq', // Replace with your actual Formspree ID
+    thankYouMessage: 'Thank you for your message! I\'ll get back to you soon.',
+    placeholders: {
+        name: 'Your Name',
+        email: 'your@email.com',
+        subject: 'Project Collaboration',
+        message: 'Tell me about your project or opportunity...'
+    }
+};
+
+
+
+export const CERTIFICATIONS = [
+    'Winner - NVIDIA NIM Hackathon 2024',
+    'Databricks Certified ML Associate',
+    'TensorFlow for AI/ML/DL Certification',
+    'Convolutional Neural Networks in TensorFlow',
+    'Statistics & Mathematics for Data Science',
+    'NLP with Python Certification'
+];
