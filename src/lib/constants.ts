@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
     name: 'Rahul Pandey - AI Engineer Portfolio',
     title: 'Rahul Pandey | Data Scientist & AI Engineer',
     description: 'AI Engineer specialized in LLMs, RAG Pipelines, Multi-Agent Systems, and Cloud Deployments. Winner of NVIDIA NIM Hackathon 2024.',
-    url: 'https://rahulpandey-ai-portfolio.vercel.app',
+    url: 'https://portfoliorp.vercel.app/',
     ogImage: '/og-image.png',
     links: {
         github: 'https://github.com/RahulpndtRp',
