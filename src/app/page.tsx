@@ -9,6 +9,7 @@ import { Projects } from '@/components/sections/Projects';
 import { Blog } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
 import { Resume } from '@/components/sections/Resume';
+import { AIChatbot } from '@/components/ui/AIChatbot';
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Blog />
       <Contact />
       <Resume />
+      <AIChatbot />
     </Layout>
   );
 }
