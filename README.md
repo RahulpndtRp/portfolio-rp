@@ -5,7 +5,7 @@ A modern, responsive portfolio website showcasing 4+ years of Data Science and A
 ## 🏆 Featured Achievements
 
 - **NVIDIA AI NIM Hackathon Winner 2024** - Top 1% among 500+ global participants
-- **150+ Enterprise Clients Served** - Including major insurance carriers
+- **15+ Enterprise Clients Served** - Including major insurance carriers
 - **95% Average Model Accuracy** - Across multiple AI projects
 - **4+ Years Experience** - From traditional ML to cutting-edge Generative AI
 

@@ -9,9 +9,9 @@ export const experiences: Experience[] = [
         duration: 'May 2024 - Present',
         description: [
             'Working on advanced AI/ML initiatives for enterprise clients',
+            'Built a DevOps self-healing system using Multi-Agent system',
+            'Digital Human based conversational Advisor using LLM',
             'Leading development of cutting-edge AI solutions using latest technologies',
-            'Implementing enterprise-scale AI systems for Fortune 500 companies',
-            'Specializing in Generative AI and Multi-Agent systems'
         ],
         technologies: ['LangGraph', 'Google ADK', 'NVIDIA Omniverse', 'NVIDIA RIVA', 'NVIDIA ACE', 'FastAPI', 'Azure'],
         achievements: [
@@ -70,10 +70,10 @@ export const achievements: Achievement[] = [
     {
         id: 'nvidia-hackathon-2024',
         title: 'Winner of NVIDIA AI NIM Hackathon at NVIDIA AI Summit 2024',
-        description: 'Won the prestigious NVIDIA AI NIM Hackathon showcasing innovative problem-solving and technical expertise in AI development',
+        description: 'Won the prestigious NVIDIA AI NIM Hackathon with an innovative video analysis system using NVIDIA VIA model to analyze football match feeds, generate automated articles, and answer queries about players, goals, penalties, and timestamps',
         date: '2024',
         category: 'Hackathon',
-        impact: 'Recognition for technical excellence and innovation in AI at premier industry event'
+        impact: 'Top 1% among 500+ global participants - showcased innovative use of NVIDIA VIA for sports analytics'
     },
     {
         id: 'databricks-certification',
@@ -133,7 +133,7 @@ export const certifications: Certification[] = [
 // Career progression metrics based on actual resume
 export const careerMetrics = {
     totalExperience: '4+ Years',
-    projectsLed: '3+',
+    projectsLed: '4+',
     clientsServed: '15+',
     teamSize: '5+ Engineers',
     budgetManaged: '$1.5M+',
