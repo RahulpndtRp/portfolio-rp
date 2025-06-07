@@ -132,34 +132,65 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 'video-summarization',
+        title: 'AI Video Summarization System (Hackathon Project)',
+        description: 'Hackathon project: Intelligent video summarization system that extracts key highlights, generates automated summaries, and provides searchable video content insights.',
+        longDescription: 'Hackathon-developed video processing system that uses AI to analyze video content, extract key moments, generate comprehensive summaries, and create searchable transcripts with intelligent tagging and categorization.',
+        technologies: ['Python', 'Computer Vision', 'NLP', 'Video Processing', 'Machine Learning', 'Speech-to-Text'],
+        category: 'Full-Stack AI',
+        featured: true,
+        architecture: {
+            overview: 'End-to-end video processing pipeline with AI-powered content analysis and summarization built during hackathon',
+            components: ['Video Processor', 'Scene Detection', 'Speech-to-Text Engine', 'Content Analyzer', 'Summary Generator'],
+            dataFlow: 'Video Upload → Scene Analysis → Video Frame Extraction → Content Summarization → Searchable Output',
+            scalability: 'Processes multiple video formats with batch processing capabilities'
+        },
+        metrics: {
+            performance: 'Automated video content analysis and summarization',
+            accuracy: 'High-quality summaries with key moment detection',
+            scale: 'Support for various video lengths and formats',
+            users: 'Hackathon demonstration and proof of concept'
+        },
+        challenges: [
+            'Accurate scene detection and segmentation within hackathon timeframe',
+            'Quality transcript generation from diverse audio sources',
+            'Meaningful summary generation from video content under time constraints'
+        ],
+        innovations: [
+            'Rapid prototyping of intelligent scene change detection algorithms',
+            'Multi-modal content analysis (visual + audio) implementation',
+            'Automated highlight extraction and tagging system'
+        ]
+    },
+    {
         id: 'avatar-conversational-ai',
-        title: 'Avatar-Based Conversational AI (NVIDIA Winner)',
-        description: 'NVIDIA NIM Hackathon winning project: Lifelike conversational AI with NVIDIA Omniverse, RIVA ASR, and advanced TTS systems.',
-        longDescription: 'Award-winning avatar system that combines cutting-edge NVIDIA technologies to create lifelike conversational experiences. Features real-time lip-sync, emotion recognition, and natural conversation flow.',
-        technologies: ['NVIDIA Omniverse', 'NVIDIA RIVA', 'NVIDIA ACE', 'TTS Systems', 'Computer Vision', 'Real-time Rendering'],
+        title: 'Avatar Based Conversational Advisor',
+        description: 'Development of an Avatar based Advisor with real-time response to queries using NVIDIA Omniverse, ASR, and TTS technologies.',
+        longDescription: 'Advanced conversational AI system featuring avatar-based interaction with 95% accuracy, enhanced conversation flow through RAG integration, and optimized performance using NVIDIA technologies.',
+        technologies: ['NVIDIA Omniverse', 'NVIDIA RIVA ASR', 'NVIDIA TTS', 'NVIDIA ACE', 'NVIDIA NeMo', 'NVIDIA NIM', 'RAG', 'MemGPT', 'FastAPI', 'Azure'],
         category: 'NVIDIA Tech',
         featured: true,
         architecture: {
-            overview: 'Real-time avatar rendering with integrated speech and emotion processing',
-            components: ['Avatar Renderer (Omniverse)', 'Speech Recognition (RIVA)', 'Emotion Engine', 'Lip-Sync System', 'TTS Generator'],
-            dataFlow: 'Voice Input → RIVA Processing → Response Generation → Avatar Animation → Real-time Rendering',
-            scalability: 'Real-time performance on NVIDIA RTX hardware'
+            overview: 'Avatar-based conversational system with real-time speech processing and response generation',
+            components: ['Avatar Rendering', 'ASR Processing', 'TTS Generation', 'RAG Integration', 'VectorDB Optimization'],
+            dataFlow: 'Voice Input → ASR Processing → Query Understanding → Response Generation → TTS → Avatar Output',
+            scalability: 'Azure App Services deployment with 40% scalability boost'
         },
         metrics: {
-            performance: '95% real-time lip-sync accuracy',
-            accuracy: '97% speech recognition accuracy',
-            scale: 'Sub-200ms response latency',
-            users: 'NVIDIA Hackathon Winner - Top 1%'
+            accuracy: '95% avatar-based chatbot accuracy',
+            performance: '30% conversation flow enhancement',
+            scale: '98% language generation accuracy',
+            users: '30% user satisfaction increase'
         },
         challenges: [
-            'Real-time rendering with low latency',
-            'Natural emotion expression in avatars',
-            'Cross-platform compatibility'
+            'Real-time avatar response generation',
+            'Integration of multiple NVIDIA technologies',
+            'Optimization for dynamic conversation flow'
         ],
         innovations: [
-            'NVIDIA Omniverse integration for realistic avatars',
-            'Real-time emotion-driven animation',
-            'Optimized pipeline for consumer hardware'
+            'NVIDIA Omniverse integration for lifelike avatars',
+            'Enhanced conversation flow through RAG and MemGPT',
+            '10x faster VectorDB optimization for dynamic chats'
         ]
     },
     {
@@ -277,7 +308,7 @@ export const portfolioStats = {
     featuredProjects: projects.filter(p => p.featured).length,
     totalUsers: '2000+',
     avgAccuracy: '94%',
-    enterpriseClients: '150+',
+    enterpriseClients: '15+',
     costSavings: '$700K+',
     githubStars: '200+',
     liveDeployments: projects.filter(p => p.liveUrl).length

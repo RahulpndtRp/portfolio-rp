@@ -1,14 +1,32 @@
 // src/components/sections/Hero.tsx
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { ANIMATION_VARIANTS } from '@/lib/constants';
-import { Trophy, Award, Users, Code } from 'lucide-react';
+import { Trophy, Award, Users, Code, MapPin, Clock } from 'lucide-react';
 
 export function Hero() {
+    const [currentSpecialty, setCurrentSpecialty] = useState(0);
+
+    const specialties = [
+        "Generative AI Expert",
+        "Multi-Agent Systems Developer",
+        "RAG Pipeline Architect",
+        "NVIDIA Technology Specialist",
+        "Enterprise AI Engineer"
+    ];
+
+    // Rotate specialties every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSpecialty((prev) => (prev + 1) % specialties.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     const handleScrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -34,24 +52,55 @@ export function Hero() {
                         variants={ANIMATION_VARIANTS.stagger}
                         className="flex-1 text-center lg:text-left space-y-8"
                     >
-                        {/* Main Heading */}
+                        {/* Main Heading with Rotating Specialty */}
                         <motion.div variants={ANIMATION_VARIANTS.fadeIn} className="space-y-4">
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                                 Hi, I'm <span className="gradient-text">Rahul Pandey</span>
                             </h1>
-                            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold gradient-text">
-                                Data Scientist & AI Engineer
-                            </h2>
+                            <div className="text-2xl md:text-4xl lg:text-5xl font-bold">
+                                <span className="text-white">Data Scientist & </span>
+                                <div className="inline-block min-h-[1.2em]">
+                                    <motion.span
+                                        key={currentSpecialty}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="gradient-text"
+                                    >
+                                        {specialties[currentSpecialty]}
+                                    </motion.span>
+                                </div>
+                            </div>
                         </motion.div>
 
-                        {/* Professional Tagline */}
+                        {/* Professional Tagline with Location */}
                         <motion.p
                             variants={ANIMATION_VARIANTS.fadeIn}
                             className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
                         >
                             4+ years building enterprise AI solutions • NVIDIA AI NIM Hackathon Winner 2024 •
-                            Specializing in Generative AI, Multi-Agent Systems, and LLM Orchestration
+                            Based in India, Available Globally
                         </motion.p>
+
+                        {/* Availability Status */}
+                        <motion.div
+                            variants={ANIMATION_VARIANTS.fadeIn}
+                            className="flex flex-wrap justify-center lg:justify-start gap-3"
+                        >
+                            <Badge variant="primary" className="flex items-center gap-2 px-4 py-2">
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                Available for new opportunities
+                            </Badge>
+                            <Badge variant="outline" className="flex items-center gap-2">
+                                <MapPin className="w-3 h-3" />
+                                India • Remote • Global
+                            </Badge>
+                            <Badge variant="outline" className="flex items-center gap-2">
+                                <Clock className="w-3 h-3" />
+                                Quick Response
+                            </Badge>
+                        </motion.div>
 
                         {/* Key Highlights */}
                         <motion.div
@@ -98,26 +147,9 @@ export function Hero() {
                                 Get in Touch
                             </Button>
                         </motion.div>
-
-                        {/* Quick Links */}
-                        <motion.div
-                            variants={ANIMATION_VARIANTS.fadeIn}
-                            className="flex flex-wrap justify-center lg:justify-start gap-3"
-                        >
-                            <Badge variant="outline" className="flex items-center gap-2">
-                                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                                Available for opportunities
-                            </Badge>
-                            <Badge variant="outline">
-                                Remote Friendly
-                            </Badge>
-                            <Badge variant="outline">
-                                Enterprise AI Expert
-                            </Badge>
-                        </motion.div>
                     </motion.div>
 
-                    {/* Right side - Enhanced Photo with Professional Touch */}
+                    {/* Right side - Photo with original badge format */}
                     <motion.div
                         initial="hidden"
                         animate="visible"
@@ -128,52 +160,65 @@ export function Hero() {
                             variants={ANIMATION_VARIANTS.scaleIn}
                             className="relative"
                         >
+                            {/* All badges positioned around the photo - Original Format */}
                             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                                {/* Main Photo */}
-                                <div className="w-full h-full rounded-full overflow-hidden border-4 border-ai-blue/30 shadow-2xl shadow-ai-blue/20 relative">
-                                    <img
-                                        src="/images/rahul-photo.jpg"
-                                        alt="Rahul Pandey - AI Engineer"
-                                        className="w-full h-full object-cover"
-                                        onError={(e) => {
-                                            // Fallback if image doesn't exist
-                                            const target = e.target as HTMLImageElement;
-                                            target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMEYwRjIzIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNjAiIGZpbGw9IiM2MzY2RjEiLz4KPHBhdGggZD0iTTEwMCAzNTBIMzAwQzMwMCAzMDAgMjUwIDI1MCAyMDAgMjUwQzE1MCAyNTAgMTAwIDMwMCAxMDAgMzUwWiIgZmlsbD0iIzYzNjZGMSIvPgo8L3N2Zz4K';
-                                        }}
-                                    />
-                                </div>
+                                <img
+                                    src="/images/rahul-photo.jpg"
+                                    alt="Rahul Pandey - AI Engineer"
+                                    className="w-full h-full rounded-full object-cover border-4 border-ai-blue/30 shadow-2xl shadow-ai-blue/20"
+                                    onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMEYwRjIzIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNjAiIGZpbGw9IiM2MzY2RjEiLz4KPHBhdGggZD0iTTEwMCAzNTBIMzAwQzMwMCAzMDAgMjUwIDI1MCAyMDAgMjUwQzE1MCAyNTAgMTAwIDMwMCAxMDAgMzUwWiIgZmlsbD0iIzYzNjZGMSIvPgo8L3N2Zz4K';
+                                    }}
+                                />
 
                                 {/* Gradient overlay */}
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-ai-blue/10 to-ai-purple/10"></div>
 
-                                {/* Professional badges around the photo - simplified */}
-                                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                                    <Badge variant="primary" className="animate-pulse">
-                                        <Trophy className="w-3 h-3 mr-1" />
-                                        NVIDIA Winner
-                                    </Badge>
+                                {/* Badges positioned around the circle - Original Format */}
+
+                                {/* Top */}
+                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    NVIDIA Winner 2024
                                 </div>
 
-                                <div className="absolute top-8 -right-4">
-                                    <Badge variant="secondary">
-                                        AI Expert
-                                    </Badge>
+                                {/* Top Right */}
+                                <div className="absolute top-8 -right-6 bg-ai-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    LLM Specialist
                                 </div>
 
-                                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                    <Badge variant="primary">
-                                        4+ Years
-                                    </Badge>
+                                {/* Right */}
+                                <div className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-ai-purple text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    MLOps
                                 </div>
 
-                                <div className="absolute top-8 -left-4">
-                                    <Badge variant="secondary">
-                                        Full Stack
-                                    </Badge>
+                                {/* Bottom Right */}
+                                <div className="absolute bottom-8 -right-6 bg-ai-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    Cloud AI
                                 </div>
 
-                                {/* Animated ring */}
-                                <div className="absolute inset-0 rounded-full border-2 border-ai-purple/30 animate-pulse"></div>
+                                {/* Bottom */}
+                                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-ai-purple text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    4+ Years Experience
+                                </div>
+
+                                {/* Bottom Left */}
+                                <div className="absolute bottom-8 -left-6 bg-ai-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    RAG Systems
+                                </div>
+
+                                {/* Left */}
+                                <div className="absolute top-1/2 -left-8 transform -translate-y-1/2 bg-ai-purple text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    Data Scientist
+                                </div>
+
+                                {/* Top Left */}
+                                <div className="absolute top-8 -left-6 bg-ai-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                    Generative AI
+                                </div>
+
+                                {/* Floating ring */}
+                                <div className="absolute inset-0 rounded-full border-2 border-ai-purple/20 animate-pulse"></div>
                             </div>
                         </motion.div>
                     </motion.div>

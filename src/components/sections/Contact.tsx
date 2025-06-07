@@ -96,22 +96,40 @@ export function Contact() {
                         {CONTACT_TEXT.subtitle}
                     </motion.p>
 
-                    {/* Response time indicator */}
+                    {/* Response time and location indicator */}
                     <motion.div
                         variants={ANIMATION_VARIANTS.fadeIn}
-                        className="flex justify-center gap-6 text-sm text-gray-400"
+                        className="flex flex-col sm:flex-row justify-center gap-6 text-sm text-gray-400 mb-4"
                     >
                         <div className="flex items-center gap-2">
                             <Clock className="w-4 h-4 text-ai-blue" />
-                            <span>Response within {responseTime}</span>
+                            <span>Response within 24 hours</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Users className="w-4 h-4 text-ai-purple" />
-                            <span>Open for collaborations</span>
+                            <MapPin className="w-4 h-4 text-ai-purple" />
+                            <span>Based in India • Available Globally</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Users className="w-4 h-4 text-ai-blue" />
+                            <span>Remote collaboration ready</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span>Currently available</span>
+                            <span>Currently available for opportunities</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Timezone and work preferences */}
+                    <motion.div
+                        variants={ANIMATION_VARIANTS.fadeIn}
+                        className="text-center mb-8"
+                    >
+                        <div className="glass-effect px-6 py-3 rounded-lg inline-block">
+                            <p className="text-sm text-gray-300">
+                                <span className="font-semibold text-ai-blue">Timezone:</span> IST (GMT+5:30) •
+                                <span className="font-semibold text-ai-purple ml-2">Preferred:</span> Email & LinkedIn •
+                                <span className="font-semibold text-ai-blue ml-2">Global:</span> Remote work ready
+                            </p>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -163,9 +181,61 @@ export function Contact() {
                             </Card>
                         </motion.div>
 
+                        {/* Enhanced location and availability info */}
                         <motion.div variants={ANIMATION_VARIANTS.slideIn}>
                             <Card>
-                                <h3 className="text-xl font-bold mb-4 text-ai-purple">{CONTACT_TEXT.opportunitiesTitle}</h3>
+                                <h3 className="text-xl font-bold mb-4 text-ai-blue">Availability & Location</h3>
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3 p-3 bg-ai-gray rounded-lg">
+                                        <MapPin className="w-5 h-5 text-ai-blue" />
+                                        <div>
+                                            <p className="text-white font-semibold">Based in India</p>
+                                            <p className="text-gray-400 text-sm">Available for global remote work</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 p-3 bg-ai-gray rounded-lg">
+                                        <Clock className="w-5 h-5 text-ai-purple" />
+                                        <div>
+                                            <p className="text-white font-semibold">IST Timezone (GMT+5:30)</p>
+                                            <p className="text-gray-400 text-sm">Flexible with global teams</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 p-3 bg-ai-gray rounded-lg">
+                                        <div className="w-5 h-5 bg-green-400 rounded-full animate-pulse"></div>
+                                        <div>
+                                            <p className="text-white font-semibold">Currently Available</p>
+                                            <p className="text-gray-400 text-sm">Open for new opportunities</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Card>
+                        </motion.div>
+
+                        {/* Communication preferences */}
+                        <motion.div variants={ANIMATION_VARIANTS.slideIn}>
+                            <Card>
+                                <h3 className="text-xl font-bold mb-4 text-ai-purple">Communication</h3>
+                                <div className="space-y-3">
+                                    <div className="flex items-center justify-between p-3 bg-ai-gray rounded-lg">
+                                        <span className="text-white">📧 Email</span>
+                                        <Badge variant="primary" size="sm">Preferred</Badge>
+                                    </div>
+                                    <div className="flex items-center justify-between p-3 bg-ai-gray rounded-lg">
+                                        <span className="text-white">💼 LinkedIn</span>
+                                        <Badge variant="secondary" size="sm">Professional</Badge>
+                                    </div>
+                                    <div className="flex items-center justify-between p-3 bg-ai-gray rounded-lg">
+                                        <span className="text-white">⚡ Response Time</span>
+                                        <Badge variant="outline" size="sm">Within 24h</Badge>
+                                    </div>
+                                </div>
+                            </Card>
+                        </motion.div>
+
+                        {/* Opportunities and global work */}
+                        <motion.div variants={ANIMATION_VARIANTS.slideIn}>
+                            <Card>
+                                <h3 className="text-xl font-bold mb-4 text-ai-blue">Open for Opportunities</h3>
                                 <ul className="space-y-3 text-gray-300">
                                     {OPPORTUNITIES.map((opportunity) => (
                                         <li key={opportunity} className="flex items-center gap-3">
@@ -174,30 +244,9 @@ export function Contact() {
                                         </li>
                                     ))}
                                 </ul>
-                            </Card>
-                        </motion.div>
-
-                        {/* Quick stats */}
-                        <motion.div variants={ANIMATION_VARIANTS.slideIn}>
-                            <Card>
-                                <h3 className="text-xl font-bold mb-4 text-ai-blue">Why Work With Me?</h3>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
-                                        <div className="text-lg font-bold text-ai-blue">4+</div>
-                                        <div className="text-xs text-gray-400">Years Experience</div>
-                                    </div>
-                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
-                                        <div className="text-lg font-bold text-ai-purple">15+</div>
-                                        <div className="text-xs text-gray-400">Clients Served</div>
-                                    </div>
-                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
-                                        <div className="text-lg font-bold text-ai-blue">95%</div>
-                                        <div className="text-xs text-gray-400">Avg Accuracy</div>
-                                    </div>
-                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
-                                        <div className="text-lg font-bold text-ai-purple">24h</div>
-                                        <div className="text-xs text-gray-400">Response Time</div>
-                                    </div>
+                                <div className="mt-4 p-3 bg-ai-dark rounded-lg border border-ai-blue/20">
+                                    <p className="text-ai-blue text-sm font-semibold">🌍 Global Remote Ready</p>
+                                    <p className="text-gray-400 text-sm">Experienced working with international teams across different timezones</p>
                                 </div>
                             </Card>
                         </motion.div>
