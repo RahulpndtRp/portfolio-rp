@@ -36,7 +36,7 @@ export function Hero() {
 
     const keyHighlights = [
         { icon: Trophy, text: 'NVIDIA Hackathon Winner 2024', color: 'text-yellow-400' },
-        { icon: Users, text: '150+ Enterprise Clients', color: 'text-ai-blue' },
+        { icon: Users, text: '15+ Enterprise Clients', color: 'text-ai-blue' },
         { icon: Code, text: '4+ Years Experience', color: 'text-ai-purple' },
         { icon: Award, text: '95% Average Accuracy', color: 'text-green-400' }
     ];
