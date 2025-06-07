@@ -1,15 +1,16 @@
 // src/components/sections/Contact.tsx
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, CheckCircle, Send, Clock, Users } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
+import { Badge } from '@/components/ui/Badge';
 import { useContactForm } from '@/hooks/useContactForm';
-import { CONTACT_INFO, OPPORTUNITIES, CONTACT_TEXT, FORM_CONFIG, ANIMATION_VARIANTS } from '@/lib/constants';
+import { CONTACT_INFO, OPPORTUNITIES, CONTACT_TEXT, ANIMATION_VARIANTS } from '@/lib/constants';
 
 const iconMap = {
     Mail,
@@ -20,6 +21,7 @@ const iconMap = {
 
 export function Contact() {
     const { form, errors, isSubmitting, isSuccess, updateField, submitForm } = useContactForm();
+    const [responseTime, setResponseTime] = useState('24 hours');
 
     const contactInfo = [
         {
@@ -52,20 +54,25 @@ export function Contact() {
         }
     ];
 
-
-    const opportunities = [
+    const quickTopics = [
         'AI/ML Engineering Roles',
         'Generative AI Consulting',
-        'RAG & LLM Implementation',
-        'Multi-Agent System Development',
-        'NVIDIA Tech Integration',
-        'Speaking & Technical Workshops'
+        'Multi-Agent Systems',
+        'Enterprise AI Solutions',
+        'Speaking Opportunities',
+        'Technical Collaboration'
     ];
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         submitForm();
     };
+
+    const handleQuickTopic = (topic: string) => {
+        updateField('subject', topic);
+        updateField('message', `Hi Rahul,\n\nI'm interested in discussing ${topic.toLowerCase()}. `);
+    };
+
     return (
         <section id="contact" className="py-20 bg-ai-dark">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,10 +91,29 @@ export function Contact() {
                     </motion.h2>
                     <motion.p
                         variants={ANIMATION_VARIANTS.fadeIn}
-                        className="text-xl text-gray-300 max-w-3xl mx-auto"
+                        className="text-xl text-gray-300 max-w-4xl mx-auto mb-8"
                     >
                         {CONTACT_TEXT.subtitle}
                     </motion.p>
+
+                    {/* Response time indicator */}
+                    <motion.div
+                        variants={ANIMATION_VARIANTS.fadeIn}
+                        className="flex justify-center gap-6 text-sm text-gray-400"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Clock className="w-4 h-4 text-ai-blue" />
+                            <span>Response within {responseTime}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Users className="w-4 h-4 text-ai-purple" />
+                            <span>Open for collaborations</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span>Currently available</span>
+                        </div>
+                    </motion.div>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-12">
@@ -107,7 +133,11 @@ export function Contact() {
                                     {contactInfo.map((info) => {
                                         const Icon = iconMap[info.icon];
                                         return (
-                                            <div key={info.label} className="flex items-center gap-4">
+                                            <motion.div
+                                                key={info.label}
+                                                className="flex items-center gap-4 p-3 rounded-lg hover:bg-ai-gray/50 transition-colors duration-200"
+                                                whileHover={{ x: 4 }}
+                                            >
                                                 <div className={`bg-ai-blue bg-opacity-20 p-3 rounded-lg`}>
                                                     <Icon className={`w-6 h-6 ${info.color}`} />
                                                 </div>
@@ -126,7 +156,7 @@ export function Contact() {
                                                         <p className="text-white font-semibold">{info.value}</p>
                                                     )}
                                                 </div>
-                                            </div>
+                                            </motion.div>
                                         );
                                     })}
                                 </div>
@@ -146,6 +176,31 @@ export function Contact() {
                                 </ul>
                             </Card>
                         </motion.div>
+
+                        {/* Quick stats */}
+                        <motion.div variants={ANIMATION_VARIANTS.slideIn}>
+                            <Card>
+                                <h3 className="text-xl font-bold mb-4 text-ai-blue">Why Work With Me?</h3>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
+                                        <div className="text-lg font-bold text-ai-blue">4+</div>
+                                        <div className="text-xs text-gray-400">Years Experience</div>
+                                    </div>
+                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
+                                        <div className="text-lg font-bold text-ai-purple">15+</div>
+                                        <div className="text-xs text-gray-400">Clients Served</div>
+                                    </div>
+                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
+                                        <div className="text-lg font-bold text-ai-blue">95%</div>
+                                        <div className="text-xs text-gray-400">Avg Accuracy</div>
+                                    </div>
+                                    <div className="text-center p-3 bg-ai-gray rounded-lg">
+                                        <div className="text-lg font-bold text-ai-purple">24h</div>
+                                        <div className="text-xs text-gray-400">Response Time</div>
+                                    </div>
+                                </div>
+                            </Card>
+                        </motion.div>
                     </motion.div>
 
                     {/* Contact Form */}
@@ -158,6 +213,22 @@ export function Contact() {
                         <Card>
                             <h3 className="text-2xl font-bold mb-6 text-ai-blue">{CONTACT_TEXT.formTitle}</h3>
 
+                            {/* Quick topic buttons */}
+                            <div className="mb-6">
+                                <h4 className="text-sm font-semibold text-gray-300 mb-3">Quick Topics:</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {quickTopics.map((topic) => (
+                                        <button
+                                            key={topic}
+                                            onClick={() => handleQuickTopic(topic)}
+                                            className="text-xs bg-ai-gray hover:bg-ai-blue hover:text-ai-dark px-3 py-1 rounded-full transition-colors duration-200"
+                                        >
+                                            {topic}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <Input
@@ -166,7 +237,7 @@ export function Contact() {
                                         value={form.name}
                                         onChange={(e) => updateField('name', e.target.value)}
                                         error={errors.name}
-                                        placeholder={FORM_CONFIG.placeholders.name}
+                                        placeholder="Your Name"
                                         required
                                     />
                                     <Input
@@ -176,7 +247,7 @@ export function Contact() {
                                         value={form.email}
                                         onChange={(e) => updateField('email', e.target.value)}
                                         error={errors.email}
-                                        placeholder={FORM_CONFIG.placeholders.email}
+                                        placeholder="your@email.com"
                                         required
                                     />
                                 </div>
@@ -187,7 +258,7 @@ export function Contact() {
                                     value={form.subject}
                                     onChange={(e) => updateField('subject', e.target.value)}
                                     error={errors.subject}
-                                    placeholder={FORM_CONFIG.placeholders.subject}
+                                    placeholder="Project Collaboration"
                                     required
                                 />
 
@@ -198,7 +269,7 @@ export function Contact() {
                                     value={form.message}
                                     onChange={(e) => updateField('message', e.target.value)}
                                     error={errors.message}
-                                    placeholder={FORM_CONFIG.placeholders.message}
+                                    placeholder="Tell me about your project or opportunity..."
                                     required
                                 />
 
@@ -207,13 +278,77 @@ export function Contact() {
                                     className="w-full"
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? 'Sending...' : isSuccess ? 'Message Sent!' : 'Send Message'}
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                            Sending...
+                                        </>
+                                    ) : isSuccess ? (
+                                        <>
+                                            <CheckCircle className="w-4 h-4 mr-2" />
+                                            Message Sent!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send className="w-4 h-4 mr-2" />
+                                            Send Message
+                                        </>
+                                    )}
                                 </Button>
+
+                                {isSuccess && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg"
+                                    >
+                                        <p className="text-green-400 text-sm">
+                                            Thanks for reaching out! I'll get back to you within 24 hours.
+                                        </p>
+                                    </motion.div>
+                                )}
                             </form>
                         </Card>
                     </motion.div>
                 </div>
+
+                {/* Call to action */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={ANIMATION_VARIANTS.fadeIn}
+                    className="text-center mt-16"
+                >
+                    <div className="glass-effect p-8 rounded-2xl max-w-3xl mx-auto">
+                        <h3 className="text-2xl font-bold text-white mb-4">
+                            Ready to Build Something Amazing?
+                        </h3>
+                        <p className="text-gray-300 mb-6 leading-relaxed">
+                            Whether you're looking for an AI engineer to join your team, need consultation on
+                            generative AI projects, or want to collaborate on cutting-edge multi-agent systems,
+                            I'm here to help bring your vision to life.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="mailto:pyrahulpndt@gmail.com?subject=Project Collaboration">
+                                <Button size="lg" className="w-full sm:w-auto">
+                                    Start a Project
+                                </Button>
+                            </a>
+                            <a
+                                href="/resume.pdf"
+                                download="Rahul_Pandey_Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                                    Download Resume
+                                </Button>
+                            </a>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
-        </section >
+        </section>
     );
 }
