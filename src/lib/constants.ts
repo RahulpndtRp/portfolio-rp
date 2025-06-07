@@ -1,4 +1,12 @@
 // src/lib/constants.ts
+
+// Import professional data
+import {
+    professionalHighlights,
+    techJourney,
+    skillRadarData
+} from '@/data/professional';
+
 export const SITE_CONFIG = {
     brandName: 'Rahul Pandey',
     name: 'Rahul Pandey - AI Engineer Portfolio',
@@ -63,24 +71,30 @@ export const ANIMATION_VARIANTS = {
     }
 };
 
+// Enhanced Tech Categories with additional metadata
 export const TECH_CATEGORIES = {
     'AI/ML Frameworks': '#00D4FF',
     'Vector Databases': '#6366F1',
     'Cloud & DevOps': '#00D4FF',
     'Programming': '#6366F1',
-    'Hardware': '#00D4FF'
+    'Frontend': '#00D4FF',
+    'Hardware': '#6366F1',
+    'Emerging Tech': '#00D4FF'
 };
 
+// Enhanced project categories reflecting your expertise
 export const PROJECT_CATEGORIES = [
     'All',
-    'Multi-Agent',
-    'RAG Pipeline',
-    'GPU Optimization',
-    'LLM Orchestration',
-    'Full-Stack AI',
-    'Vector DB'
+    'Enterprise AI',       // For large-scale business solutions
+    'Multi-Agent',         // Existing
+    'RAG Pipeline',        // Existing
+    'GPU Optimization',    // Existing
+    'LLM Orchestration',   // Existing
+    'Full-Stack AI',       // Existing
+    'Real-time Systems',   // For token-streaming UIs
+    'NVIDIA Tech',         // For your NVIDIA specialization
+    'Vector DB'            // Existing
 ] as const;
-
 
 export const CONTACT_INFO = {
     email: {
@@ -111,6 +125,8 @@ export const OPPORTUNITIES = [
     'RAG & LLM Implementation',
     'Multi-Agent System Development',
     'NVIDIA Tech Integration',
+    'Real-time AI Systems',
+    'Enterprise AI Architecture',
     'Speaking & Technical Workshops'
 ];
 
@@ -123,7 +139,7 @@ export const CONTACT_TEXT = {
 };
 
 export const FORM_CONFIG = {
-    formspreeId: 'https://formspree.io/f/xrbkgagq', // Replace with your actual Formspree ID
+    formspreeId: 'https://formspree.io/f/xrbkgagq',
     thankYouMessage: 'Thank you for your message! I\'ll get back to you soon.',
     placeholders: {
         name: 'Your Name',
@@ -133,13 +149,19 @@ export const FORM_CONFIG = {
     }
 };
 
-
-
+// Enhanced certifications with more details
 export const CERTIFICATIONS = [
     'Winner - NVIDIA NIM Hackathon 2024',
     'Databricks Certified ML Associate',
     'TensorFlow for AI/ML/DL Certification',
     'Convolutional Neural Networks in TensorFlow',
+    'Natural Language Processing in TensorFlow',
     'Statistics & Mathematics for Data Science',
-    'NLP with Python Certification'
+    'NLP with Python Certification',
+    'Deep Learning Specialization'
 ];
+
+// Export professional data for components
+export const PROFESSIONAL_HIGHLIGHTS = professionalHighlights;
+export const TECH_JOURNEY = techJourney;
+export const SKILL_RADAR_DATA = skillRadarData;

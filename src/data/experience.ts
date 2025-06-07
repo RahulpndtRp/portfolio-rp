@@ -1,6 +1,5 @@
-
 // src/data/experience.ts
-import { Experience, Education } from '@/types';
+import { Experience, Education, Achievement, Certification } from '@/types';
 
 export const experiences: Experience[] = [
     {
@@ -9,12 +8,24 @@ export const experiences: Experience[] = [
         company: 'Accenture',
         duration: 'May 2024 - Present',
         description: [
-            'Leading AI/ML initiatives for enterprise clients',
-            'Developing generative AI solutions and LLM applications',
-            'Implementing cloud-based AI architectures on AWS and Azure',
-            'Collaborating with cross-functional teams on AI strategy'
+            'Working on advanced AI/ML initiatives for enterprise clients',
+            'Leading development of cutting-edge AI solutions using latest technologies',
+            'Implementing enterprise-scale AI systems for Fortune 500 companies',
+            'Specializing in Generative AI and Multi-Agent systems'
         ],
-        technologies: ['Python', 'AWS', 'Azure', 'LLMs', 'GenerativeAI']
+        technologies: ['LangGraph', 'Google ADK', 'NVIDIA Omniverse', 'NVIDIA RIVA', 'NVIDIA ACE', 'FastAPI', 'Azure'],
+        achievements: [
+            'Won NVIDIA AI NIM Hackathon at NVIDIA AI Summit 2024',
+            'Developed DevOps Self-Healing AI System with multi-agent architecture',
+            'Built Avatar-based Conversational Advisor with 95% accuracy'
+        ],
+        teamSize: '5+ Engineers',
+        budget: '$1M+ Projects',
+        impact: [
+            'Delivered innovative AI solutions showcasing technical expertise',
+            'Achieved 95% accuracy in avatar-based conversational AI',
+            'Implemented autonomous incident detection and remediation systems'
+        ]
     },
     {
         id: 'to-the-new-data-scientist',
@@ -22,21 +33,113 @@ export const experiences: Experience[] = [
         company: 'TO THE NEW',
         duration: 'September 2021 - April 2024',
         description: [
-            'Built DevOps Self-Healing AI System with multi-agent architecture',
-            'Developed Avatar-based Conversational Advisor with 95% accuracy',
-            'Created automatic PDF filling system for 150+ insurance carriers',
-            'Implemented recommendation engines and ML pipelines for OTT platforms'
+            'Built AI solutions for automatic PDF filling for 150+ insurance carriers',
+            'Developed recommendation engines for OTT platforms and video content',
+            'Created custom ML models for ticket classification and support systems',
+            'Worked on multiple client projects across different industries'
         ],
-        technologies: ['Python', 'LangGraph', 'NVIDIA Omniverse', 'FastAPI', 'Docker', 'AWS']
+        technologies: ['Python', 'AWS SageMaker', 'Docker', 'FastAPI', 'DistilBert', 'TensorFlow', 'LightFM', 'Scikit-learn'],
+        achievements: [
+            'Built AI solution for 150+ insurance carriers with 95% accuracy',
+            'Deployed custom DistilBert model achieving 98% accuracy',
+            'Created recommendation engine for VideoReady OTT platform',
+            'Achieved 95% accuracy in ticket classification for Tata Play support'
+        ],
+        teamSize: '3+ Data Scientists',
+        budget: '$500K+ Annual Projects',
+        impact: [
+            'Automated PDF filling process saving significant manual effort',
+            'Improved recommendation system accuracy for OTT platforms',
+            'Enhanced customer support efficiency through intelligent ticket classification',
+            'Gained expertise across multiple AI/ML domains'
+        ]
     }
 ];
 
 export const education: Education[] = [
     {
         id: 'btech-cse',
-        degree: 'B.Tech - Computer Science Engineering',
+        degree: 'Bachelor\'s Degree (B.Tech. – CSE)',
         institution: 'IMS Engineering College',
         duration: 'August 2017 - July 2021',
-        description: 'Bachelor of Technology in Computer Science'
+        description: 'Bachelor of Technology in Computer Science Engineering'
     }
 ];
+
+export const achievements: Achievement[] = [
+    {
+        id: 'nvidia-hackathon-2024',
+        title: 'Winner of NVIDIA AI NIM Hackathon at NVIDIA AI Summit 2024',
+        description: 'Won the prestigious NVIDIA AI NIM Hackathon showcasing innovative problem-solving and technical expertise in AI development',
+        date: '2024',
+        category: 'Hackathon',
+        impact: 'Recognition for technical excellence and innovation in AI at premier industry event'
+    },
+    {
+        id: 'databricks-certification',
+        title: 'Databricks Certified Machine Learning Associate',
+        description: 'Achieved industry-recognized certification in machine learning engineering and MLOps practices',
+        date: '2023',
+        category: 'Award',
+        impact: 'Professional validation of ML engineering capabilities'
+    }
+];
+
+export const certifications: Certification[] = [
+    {
+        id: 'nvidia-hackathon-winner',
+        name: 'Winner of NVIDIA AI NIM Hackathon at NVIDIA AI Summit 2024',
+        issuer: 'NVIDIA Corporation',
+        date: '2024',
+        featured: true
+    },
+    {
+        id: 'databricks-ml-associate',
+        name: 'Databricks Certified Machine Learning Associate',
+        issuer: 'Databricks',
+        date: '2023',
+        featured: true
+    },
+    {
+        id: 'tensorflow-ai-ml',
+        name: 'Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning',
+        issuer: 'Coursera',
+        date: '2023',
+        featured: true
+    },
+    {
+        id: 'cnn-tensorflow',
+        name: 'Convolutional Neural Networks in TensorFlow',
+        issuer: 'Coursera',
+        date: '2023',
+        featured: false
+    },
+    {
+        id: 'statistics-data-science',
+        name: 'Statistics & Mathematics for Data Science & Data Analytics',
+        issuer: 'Coursera',
+        date: '2022',
+        featured: false
+    },
+    {
+        id: 'nlp-python',
+        name: 'NLP-Natural Language Processing with Python',
+        issuer: 'Coursera',
+        date: '2022',
+        featured: false
+    }
+];
+
+// Career progression metrics based on actual resume
+export const careerMetrics = {
+    totalExperience: '4+ Years',
+    projectsLed: '3+',
+    clientsServed: '15+',
+    teamSize: '5+ Engineers',
+    budgetManaged: '$1.5M+',
+    costSavingsGenerated: '$500K+',
+    modelsDeployed: '15+',
+    certificationsEarned: 6,
+    awardsReceived: 2,
+    promotions: 1
+};

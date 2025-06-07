@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rahul Pandey - AI Engineer Portfolio
 
-## Getting Started
+A modern, responsive portfolio website showcasing 4+ years of Data Science and AI Engineering expertise. Built with Next.js 14, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🏆 Featured Achievements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **NVIDIA AI NIM Hackathon Winner 2024** - Top 1% among 500+ global participants
+- **150+ Enterprise Clients Served** - Including major insurance carriers
+- **95% Average Model Accuracy** - Across multiple AI projects
+- **4+ Years Experience** - From traditional ML to cutting-edge Generative AI
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Smooth animations
+- **Lucide React** - Modern icons
+
+### Features
+- ⚡ **Performance Optimized** - Lighthouse score 95+
+- 📱 **Fully Responsive** - Mobile-first design
+- ♿ **Accessible** - WCAG 2.1 compliant
+- 🎨 **Modern UI/UX** - Glassmorphism design
+- 🔍 **SEO Optimized** - Meta tags and structured data
+- 📊 **Interactive Sections** - Tabbed content and animations
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/RahulpndtRp/portfolio-rp.git
+   cd portfolio-rp
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open in browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+src/
+├── app/                    # Next.js App Router
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout with SEO
+│   ├── page.tsx          # Homepage
+│   ├── loading.tsx       # Loading component
+│   └── not-found.tsx     # 404 page
+├── components/            # React components
+│   ├── common/           # Header, Footer, Layout
+│   ├── sections/         # Page sections
+│   └── ui/               # Reusable UI components
+├── data/                 # Static data
+│   ├──
