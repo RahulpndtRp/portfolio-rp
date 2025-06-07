@@ -71,7 +71,7 @@ export const techJourney: Milestone[] = [
         title: 'Enterprise AI Architecture',
         description: 'Leading large-scale AI implementations with focus on performance optimization and edge computing',
         technologies: ['Enterprise AI', 'Run:AI', 'Kubernetes', 'Jetson Orin Nano', 'System Optimization'],
-        focus: 'Quantum Computing & Edge AI Research',
+        focus: 'Agentic Architecture, Quantum Computing & Edge AI Research',
         impact: 'Architecting next-generation AI solutions for global enterprises'
     }
 ];
