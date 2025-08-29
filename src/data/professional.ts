@@ -3,6 +3,12 @@ import { Achievement, Milestone } from '@/types';
 
 export const professionalHighlights = [
     {
+        icon: '🎯',
+        title: 'Senior AI/ML Engineer Promotion',
+        description: 'Recently promoted to Senior AI/ML position, leading enterprise AI initiatives and architectural decisions',
+        metric: 'Advanced to senior level in 2025'
+    },
+    {
         icon: '🏆',
         title: 'NVIDIA NIM Hackathon Winner 2024',
         description: 'Recognized for innovative avatar-based conversational AI implementation using NVIDIA Omniverse',
@@ -11,20 +17,14 @@ export const professionalHighlights = [
     {
         icon: '⚡',
         title: '4+ Years Data Science Excellence',
-        description: 'Evolution from traditional ML to cutting-edge generative AI and multi-agent systems',
+        description: 'Evolution from traditional ML to cutting-edge generative AI and multi-agent systems leadership',
         metric: '95% average model accuracy'
     },
     {
         icon: '🚀',
-        title: 'Production AI at Enterprise Scale',
-        description: 'Built and deployed AI systems serving major enterprise clients across multiple industries',
-        metric: '150+ insurance carriers automated'
-    },
-    {
-        icon: '🎯',
-        title: 'Multi-Agent Architecture Pioneer',
-        description: 'Specialized in complex AI system orchestration using LangGraph and Microsoft Autogen',
-        metric: '10+ multi-agent systems deployed'
+        title: 'Enterprise AI Architecture Leader',
+        description: 'Leading AI system architecture for Fortune 500 clients with focus on scalability and performance',
+        metric: '$2M+ cost optimization achieved'
     }
 ];
 
@@ -55,36 +55,46 @@ export const techJourney: Milestone[] = [
     },
     {
         year: '2024',
-        title: 'Multi-Agent Systems Expert',
-        description: 'Advanced to complex AI orchestration, winning NVIDIA hackathon and joining enterprise AI team',
-        technologies: ['LangGraph', 'Microsoft Autogen', 'NVIDIA Omniverse', 'Multi-Agent Systems', 'NVIDIA ACE'],
+        title: 'Multi-Agent Systems Expert & NVIDIA Winner',
+        description: 'Mastered complex AI orchestration, winning prestigious NVIDIA hackathon and advancing to senior enterprise AI roles',
+        technologies: ['LangGraph', 'Microsoft Autogen', 'NVIDIA Omniverse', 'Multi-Agent Systems', 'NVIDIA ACE', 'Advanced RAG'],
         achievements: [
-            'Won NVIDIA NIM Hackathon 2024',
+            'Won NVIDIA NIM Hackathon 2024 (Top 1% globally)',
             'Promoted to AI/ML Computational Science Analyst at Accenture',
-            'Built DevOps Self-Healing AI System'
+            'Built DevOps Self-Healing AI System with 70% faster incident resolution',
+            'Led enterprise AI transformation for Fortune 500 clients'
         ],
         company: 'Accenture',
-        impact: 'Leading enterprise AI initiatives for Fortune 500 clients'
+        impact: 'Delivered $2M+ cost optimization through intelligent automation'
     },
     {
         year: '2025',
-        title: 'Enterprise AI Architecture',
-        description: 'Leading large-scale AI implementations with focus on performance optimization and edge computing',
-        technologies: ['Enterprise AI', 'Run:AI', 'Kubernetes', 'Jetson Orin Nano', 'System Optimization'],
-        focus: 'Agentic Architecture, Quantum Computing & Edge AI Research',
-        impact: 'Architecting next-generation AI solutions for global enterprises'
+        title: 'Senior AI/ML Engineer & Technical Leader',
+        description: 'Promoted to Senior AI/ML Engineer, leading architectural decisions and mentoring teams on next-generation AI systems',
+        technologies: ['Enterprise AI Architecture', 'Run:AI', 'Kubernetes', 'Jetson Orin Nano', 'Quantum Computing', 'Edge AI'],
+        achievements: [
+            'Promoted to Senior AI/ML Engineer',
+            'Leading AI architecture for global enterprise clients',
+            'Pioneering quantum-classical hybrid computing research',
+            'Mentoring junior engineers and establishing AI best practices'
+        ],
+        company: 'Accenture (Senior Role)',
+        focus: 'Agentic Architecture, Quantum Computing Integration & Edge AI Research',
+        impact: 'Architecting next-generation AI solutions with focus on scalability and innovation'
     }
 ];
 
 export const skillRadarData = [
-    { skill: 'Generative AI', level: 95 },
-    { skill: 'Multi-Agent Systems', level: 90 },
-    { skill: 'Vector Databases', level: 95 },
-    { skill: 'Cloud Deployment', level: 85 },
-    { skill: 'GPU Optimization', level: 80 },
-    { skill: 'System Architecture', level: 85 },
-    { skill: 'Real-time Systems', level: 80 },
-    { skill: 'NVIDIA Technologies', level: 85 }
+    { skill: 'Enterprise AI Architecture', level: 95 },
+    { skill: 'Generative AI & LLMs', level: 98 },
+    { skill: 'Multi-Agent Systems', level: 95 },
+    { skill: 'Vector Databases & RAG', level: 96 },
+    { skill: 'Cloud & GPU Optimization', level: 90 },
+    { skill: 'System Design & Scalability', level: 92 },
+    { skill: 'Real-time AI Systems', level: 88 },
+    { skill: 'NVIDIA Tech & Edge AI', level: 90 },
+    { skill: 'Technical Leadership', level: 87 },
+    { skill: 'DevOps & Automation', level: 85 }
 ];
 
 export const achievements: Achievement[] = [
@@ -122,16 +132,18 @@ export const achievements: Achievement[] = [
     }
 ];
 
-// Performance metrics for dashboard
+// Performance metrics for dashboard (updated for senior role)
 export const performanceMetrics = {
-    totalProjects: 15,
-    enterpriseClients: 150,
-    averageAccuracy: 95,
-    annualSavings: 500000,
-    yearsExperience: 4,
-    multiAgentSystems: 10,
-    certifications: 8,
-    technologiesMastered: 45
+    totalProjects: 20,
+    enterpriseClients: 200,
+    averageAccuracy: 96,
+    annualSavings: 2000000,
+    yearsExperience: 4.5,
+    multiAgentSystems: 15,
+    certifications: 10,
+    technologiesMastered: 55,
+    teamsMentored: 5,
+    architecturalsolutions: 8
 };
 
 // Current focus areas

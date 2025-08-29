@@ -53,7 +53,7 @@ export interface Education {
 
 export interface Skill {
     name: string;
-    category: 'AI/ML Frameworks' | 'Vector Databases' | 'Cloud & DevOps' | 'Programming' | 'Frontend' | 'Hardware' | 'Emerging Tech';
+    category: 'Generative AI & LLMs' | 'Machine Learning' | 'Deep Learning' | 'Vector Databases' | 'Cloud & Infrastructure' | 'Programming Languages' | 'Web Development' | 'NVIDIA Technologies' | 'Development Tools';
     level: number; // 1-5
     yearsOfExperience?: number;
     projectsUsed?: string[];

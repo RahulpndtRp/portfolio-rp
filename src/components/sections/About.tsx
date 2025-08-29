@@ -7,6 +7,9 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { skills } from '@/data/skills';
+import { SkillRadarVisualization } from '@/components/sections/SkillRadarVisualization';
+import { JourneyVisualization } from '@/components/sections/JourneyVisualization';
+import { TechStackVisualization } from '@/components/sections/TechStackVisualization';
 import {
     ANIMATION_VARIANTS,
     TECH_CATEGORIES,
@@ -61,8 +64,8 @@ export function About() {
                         variants={ANIMATION_VARIANTS.fadeIn}
                         className="text-xl text-gray-300 max-w-4xl mx-auto"
                     >
-                        4+ years of data science excellence • NVIDIA NIM Hackathon Winner 2024 •
-                        Building enterprise AI solutions from concept to production
+                        AI/ML Engineer • 4+ years of enterprise AI excellence • NVIDIA NIM Hackathon Winner 2024 •
+                        Leading next-generation AI architecture and multi-agent systems
                     </motion.p>
                 </motion.div>
 
@@ -115,12 +118,17 @@ export function About() {
                                             {PROFESSIONAL_HIGHLIGHTS.map((highlight, index) => {
                                                 const IconComponent = iconMap[highlight.icon as keyof typeof iconMap];
                                                 return (
-                                                    <div key={index} className="flex gap-4">
-                                                        <div className="bg-ai-blue bg-opacity-20 p-3 rounded-lg flex-shrink-0">
-                                                            <IconComponent className="w-6 h-6 text-ai-blue" />
+                                                    <motion.div 
+                                                        key={index} 
+                                                        className="flex gap-4 group cursor-pointer"
+                                                        whileHover={{ scale: 1.02 }}
+                                                        transition={{ duration: 0.2 }}
+                                                    >
+                                                        <div className="bg-ai-blue bg-opacity-20 p-3 rounded-lg flex-shrink-0 group-hover:bg-opacity-30 transition-all duration-300">
+                                                            <IconComponent className="w-6 h-6 text-ai-blue group-hover:scale-110 transition-transform duration-300" />
                                                         </div>
                                                         <div>
-                                                            <h4 className="font-semibold text-white mb-1">
+                                                            <h4 className="font-semibold text-white mb-1 group-hover:text-ai-blue transition-colors duration-300">
                                                                 {highlight.title}
                                                             </h4>
                                                             <p className="text-gray-300 text-sm mb-2">
@@ -130,7 +138,7 @@ export function About() {
                                                                 {highlight.metric}
                                                             </Badge>
                                                         </div>
-                                                    </div>
+                                                    </motion.div>
                                                 );
                                             })}
                                         </div>
@@ -144,21 +152,21 @@ export function About() {
                                             Core Expertise
                                         </h3>
                                         <div className="grid grid-cols-2 gap-4">
-                                            <div className="text-center p-4 bg-ai-dark rounded-lg">
-                                                <div className="text-2xl font-bold text-ai-blue mb-1">15+</div>
+                                            <div className="text-center p-4 bg-ai-dark rounded-lg metric-glow">
+                                                <div className="text-2xl font-bold text-ai-blue mb-1">200+</div>
                                                 <div className="text-sm text-gray-400">Enterprise Clients</div>
                                             </div>
-                                            <div className="text-center p-4 bg-ai-dark rounded-lg">
-                                                <div className="text-2xl font-bold text-ai-purple mb-1">95%</div>
+                                            <div className="text-center p-4 bg-ai-dark rounded-lg metric-glow">
+                                                <div className="text-2xl font-bold text-ai-purple mb-1">96%</div>
                                                 <div className="text-sm text-gray-400">Avg Model Accuracy</div>
                                             </div>
-                                            <div className="text-center p-4 bg-ai-dark rounded-lg">
-                                                <div className="text-2xl font-bold text-ai-blue mb-1">10+</div>
+                                            <div className="text-center p-4 bg-ai-dark rounded-lg metric-glow">
+                                                <div className="text-2xl font-bold text-ai-blue mb-1">15+</div>
                                                 <div className="text-sm text-gray-400">Multi-Agent Systems</div>
                                             </div>
-                                            <div className="text-center p-4 bg-ai-dark rounded-lg">
-                                                <div className="text-2xl font-bold text-ai-purple mb-1">$500K+</div>
-                                                <div className="text-sm text-gray-400">Annual Savings</div>
+                                            <div className="text-center p-4 bg-ai-dark rounded-lg metric-glow">
+                                                <div className="text-2xl font-bold text-ai-purple mb-1">$2M+</div>
+                                                <div className="text-sm text-gray-400">Cost Optimization</div>
                                             </div>
                                         </div>
                                     </Card>
@@ -221,80 +229,7 @@ export function About() {
                             animate="visible"
                             variants={ANIMATION_VARIANTS.stagger}
                         >
-                            <Card>
-                                <h3 className="text-2xl font-bold mb-8 text-ai-blue text-center">
-                                    My Data Science Journey (2021-2025)
-                                </h3>
-                                <div className="relative">
-                                    {/* Timeline Line */}
-                                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-ai-blue to-ai-purple"></div>
-
-                                    <div className="space-y-8">
-                                        {TECH_JOURNEY.map((milestone, index) => (
-                                            <motion.div
-                                                key={milestone.year}
-                                                variants={ANIMATION_VARIANTS.fadeIn}
-                                                className="relative flex items-start gap-6"
-                                            >
-                                                {/* Timeline Dot */}
-                                                <div className="w-16 h-16 bg-gradient-to-r from-ai-blue to-ai-purple rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 border-4 border-ai-gray">
-                                                    {milestone.year}
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="flex-1 pb-8">
-                                                    <div className="glass-effect p-6 rounded-xl">
-                                                        <h4 className="text-xl font-bold text-white mb-2">
-                                                            {milestone.title}
-                                                        </h4>
-                                                        <p className="text-gray-300 mb-4">
-                                                            {milestone.description}
-                                                        </p>
-
-                                                        {milestone.company && (
-                                                            <div className="mb-3">
-                                                                <Badge variant="secondary" size="sm">
-                                                                    {milestone.company}
-                                                                </Badge>
-                                                            </div>
-                                                        )}
-
-                                                        <div className="flex flex-wrap gap-2 mb-4">
-                                                            {milestone.technologies.map((tech) => (
-                                                                <Badge key={tech} variant="outline" size="sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {milestone.achievements && (
-                                                            <div className="space-y-1">
-                                                                {milestone.achievements.map((achievement, i) => (
-                                                                    <div key={i} className="flex items-center gap-2 text-sm text-ai-blue">
-                                                                        <Trophy className="w-4 h-4" />
-                                                                        {achievement}
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        )}
-
-                                                        {milestone.focus && (
-                                                            <div className="mt-3 p-3 bg-ai-dark rounded-lg">
-                                                                <div className="text-sm font-semibold text-ai-purple mb-1">
-                                                                    Current Focus:
-                                                                </div>
-                                                                <div className="text-sm text-gray-300">
-                                                                    {milestone.focus}
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </Card>
+                            <JourneyVisualization />
                         </motion.div>
                     )}
 
@@ -306,68 +241,14 @@ export function About() {
                             variants={ANIMATION_VARIANTS.stagger}
                             className="grid md:grid-cols-2 gap-8"
                         >
-                            {/* Skills Radar Chart Placeholder */}
+                            {/* Skills Radar Visualization */}
                             <div>
-                                <Card>
-                                    <h3 className="text-xl font-bold mb-6 text-ai-blue">Skill Proficiency Radar</h3>
-                                    <div className="space-y-4">
-                                        {SKILL_RADAR_DATA.map((skill) => (
-                                            <div key={skill.skill}>
-                                                <div className="flex justify-between mb-2">
-                                                    <span className="text-white font-medium">{skill.skill}</span>
-                                                    <span className="text-ai-blue font-bold">{skill.level}%</span>
-                                                </div>
-                                                <div className="w-full bg-ai-dark rounded-full h-2">
-                                                    <motion.div
-                                                        className="bg-gradient-to-r from-ai-blue to-ai-purple h-2 rounded-full"
-                                                        initial={{ width: 0 }}
-                                                        animate={{ width: `${skill.level}%` }}
-                                                        transition={{ duration: 1, delay: 0.2 }}
-                                                    />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </Card>
+                                <SkillRadarVisualization />
                             </div>
 
-                            {/* Detailed Skills Breakdown */}
+                            {/* Tech Stack Visualization */}
                             <div>
-                                <Card>
-                                    <h3 className="text-xl font-bold mb-6 text-ai-purple">Complete Tech Stack</h3>
-                                    <div className="space-y-6 max-h-96 overflow-y-auto">
-                                        {Object.entries(groupedSkills).map(([category, categorySkills]) => (
-                                            <div key={category}>
-                                                <h4
-                                                    className="text-sm font-semibold mb-3 flex items-center gap-2"
-                                                    style={{ color: TECH_CATEGORIES[category as keyof typeof TECH_CATEGORIES] }}
-                                                >
-                                                    <div
-                                                        className="w-3 h-3 rounded-full"
-                                                        style={{ backgroundColor: TECH_CATEGORIES[category as keyof typeof TECH_CATEGORIES] }}
-                                                    />
-                                                    {category} ({categorySkills.length})
-                                                </h4>
-                                                <div className="grid grid-cols-2 gap-2">
-                                                    {categorySkills.map((skill) => (
-                                                        <div key={skill.name} className="flex items-center justify-between bg-ai-dark p-2 rounded">
-                                                            <span className="text-xs text-white">{skill.name}</span>
-                                                            <div className="flex gap-1">
-                                                                {[...Array(5)].map((_, i) => (
-                                                                    <div
-                                                                        key={i}
-                                                                        className={`w-2 h-2 rounded-full ${i < skill.level ? 'bg-ai-blue' : 'bg-gray-600'
-                                                                            }`}
-                                                                    />
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </Card>
+                                <TechStackVisualization />
                             </div>
                         </motion.div>
                     )}
