@@ -32,7 +32,7 @@ export const techJourney: Milestone[] = [
     {
         year: '2021',
         title: 'Data Science Foundation',
-        description: 'Started as Software Engineer - Data Scientist, building traditional ML models and recommendation systems',
+        description: 'Started as Data Scientist, building traditional ML models and recommendation systems',
         technologies: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Traditional ML'],
         company: 'TO THE NEW',
         impact: 'Built foundation in data preprocessing, feature engineering, and model deployment'

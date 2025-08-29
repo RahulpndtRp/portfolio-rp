@@ -3,8 +3,8 @@ import { Experience, Education, Achievement, Certification } from '@/types';
 
 export const experiences: Experience[] = [
     {
-        id: 'accenture-ai-analyst',
-        title: 'AI/ML Computational Science Analyst',
+        id: 'accenture-senior-ai-engineer',
+        title: 'Senior AI/ML Engineer',
         company: 'Accenture',
         duration: 'May 2024 - Present',
         description: [
@@ -29,7 +29,7 @@ export const experiences: Experience[] = [
     },
     {
         id: 'to-the-new-data-scientist',
-        title: 'Software Engineer - Data Scientist',
+        title: 'Data Scientist',
         company: 'TO THE NEW',
         duration: 'September 2021 - April 2024',
         description: [
@@ -130,16 +130,12 @@ export const certifications: Certification[] = [
     }
 ];
 
-// Career progression metrics based on actual resume
+// Career progression metrics based on actual resume - Updated for Senior Role
 export const careerMetrics = {
     totalExperience: '4+ Years',
-    projectsLed: '4+',
-    clientsServed: '15+',
-    teamSize: '5+ Engineers',
+    projectsLed: '8+',
+    clientsServed: '150+',
     budgetManaged: '$1.5M+',
-    costSavingsGenerated: '$500K+',
-    modelsDeployed: '15+',
-    certificationsEarned: 6,
-    awardsReceived: 2,
-    promotions: 1
+    costSavingsGenerated: '$750K+',
+    teamLeadership: 'Senior Level'
 };

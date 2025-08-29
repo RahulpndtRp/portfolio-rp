@@ -7,7 +7,7 @@ import { Button } from './Button';
 
 const RAHUL_KNOWLEDGE = {
     "who are you": "I'm Rahul Pandey, an AI Engineer with 4+ years of experience. I won the NVIDIA NIM Hackathon 2024 and specialize in RAG pipelines, multi-agent systems, and LLM orchestration.",
-    "experience": "I'm currently an AI/ML Computational Science Analyst at Accenture. Previously worked at TO THE NEW as a Software Engineer - Data Scientist for 2.5+ years.",
+    "experience": "I'm currently an AI/ML Computational Science Analyst at Accenture. Previously worked at TO THE NEW as a Data Scientist for 2.5+ years.",
     "projects": "I've built MEM-RP (memory-first RAG system), AskGenie (intelligent answering engine), DevOps Self-Healing AI System, and Avatar-based Conversational Advisor using NVIDIA Omniverse.",
     "skills": "Expert in Python, LangChain, LangGraph, FAISS, ChromaDB, AWS SageMaker, Azure, Docker, NVIDIA technologies (Omniverse, RIVA, NeMo), and multi-agent frameworks.",
     "achievements": "Winner of NVIDIA NIM Hackathon 2024, Databricks Certified ML Associate, built AI solutions for 150+ insurance carriers with 95% accuracy.",
@@ -69,8 +69,8 @@ export function AIChatbot() {
                         {messages.map((message, index) => (
                             <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                                 <div className={`max-w-xs p-3 rounded-lg text-sm ${message.type === 'user'
-                                        ? 'bg-ai-blue text-ai-dark'
-                                        : 'bg-ai-gray text-white'
+                                    ? 'bg-ai-blue text-ai-dark'
+                                    : 'bg-ai-gray text-white'
                                     }`}>
                                     {message.text}
                                 </div>
